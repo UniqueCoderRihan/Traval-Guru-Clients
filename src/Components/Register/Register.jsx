@@ -22,12 +22,16 @@ const Register = () => {
                     <label for="exampleInputPassword1" class="form-label">Password</label>
                     <input name='password' type="password" class="form-control" id="exampleInputPassword1"/>
                 </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
+                    <input name='password' type="password" class="form-control" id="exampleInputPassword1"/>
+                </div>
                 <div class="mb-3 form-check d-flex ">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1"/>
                         <label class="form-check-label" for="exampleCheck1">Remember Me</label>
-                    <p className='ms-5 underline-primary'><small> <Link>Forget password</Link> </small></p>
+                    
                 </div>
-                <button type="submit" class="btn btn-primary w-100">Login</button>
+                <button type="submit" class="btn btn-primary w-100">Register</button>
 
                 <p className='my-2'><small>Alredy have an Account? <Link to='/login'>Login</Link> </small></p>
 
