@@ -4,7 +4,7 @@ import { Form, Link } from 'react-router-dom';
 import {FaFacebook, FaGoogle} from 'react-icons/fa'
 import { AuthContex } from '../../AuthProvider/AuthProviders';
 const Login = () => {
-    const {SignWithGoogle,Error,user,signInWithFacebook,SignInExitingUser} = useContext(AuthContex);
+    const {SignWithGoogle,Error,user,signInWithFacebook,SignInExitingUser,ForgetPassWord} = useContext(AuthContex);
 
     const handleGoogle=()=>{
         SignWithGoogle()
@@ -14,6 +14,7 @@ const Login = () => {
         signInWithFacebook()
         // console.log('Facebook Clicked')
     }
+    
 
     const handleLogin=(event)=>{
         event.preventDefault();
@@ -22,6 +23,9 @@ const Login = () => {
         const password = form.password.value;
         // console.log(email,password);
         SignInExitingUser(email,password)
+        
+        // handle Reset Password
+        ForgetPassWord(email)
     }
 
     return (
@@ -40,7 +44,7 @@ const Login = () => {
                 <div class="mb-3 form-check d-flex ">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1"/>
                         <label class="form-check-label" for="exampleCheck1">Remember Me</label>
-                    <p className='ms-5 underline-primary'><small> <Link>Forget password</Link> </small></p>
+                    <p className='ms-5 underline-primary'><small > <Link onClick={ForgetPassWord}>Forget password</Link> </small></p>
                 </div>
                 <button type="submit" class="btn btn-primary w-100">Login</button>
 

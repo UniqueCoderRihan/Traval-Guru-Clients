@@ -86,6 +86,7 @@ const AuthProviders = ({children}) => {
         signInWithFacebook,
         NewUserEmailAndPassword,
         SignInExitingUser,
+        ForgetPassWord,
         LogoutUser
     }
 
