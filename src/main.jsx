@@ -9,17 +9,18 @@ import Login from './Components/Login/Login.jsx';
 import Home from './Components/Home/Home.jsx';
 import LayoutLogin from './Components/LayoutLogin/LayoutLogin.jsx';
 import LayoutRegister from './Components/LayoutRegister/LayoutRegister.jsx';
+import AuthProviders from './AuthProvider/AuthProviders.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element:<Main></Main>,
+    element: <Main></Main>,
     children: [
       {
         path: '/',
         element: <Home></Home>,
-        loader: ()=> fetch('https://traval-guru-server.vercel.app/place')
-      }  
+        loader: () => fetch('https://traval-guru-server.vercel.app/place')
+      }
     ]
   },
   {
@@ -27,13 +28,15 @@ const router = createBrowserRouter([
     element: <LayoutLogin></LayoutLogin>
   },
   {
-    path:'register',
+    path: 'register',
     element: <LayoutRegister></LayoutRegister>
   }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-     <RouterProvider router={router} />
+    <AuthProviders>
+      <RouterProvider router={router} />
+    </AuthProviders>
   </React.StrictMode>,
 )
