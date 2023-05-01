@@ -8,7 +8,7 @@ const Register = () => {
     const {SignWithGoogle,Error,user} = useContext(AuthContex);
 
     const handleGoogle=()=>{
-        SignWithGoogle
+        SignWithGoogle()
         console.log('clicked')
     }
     return (

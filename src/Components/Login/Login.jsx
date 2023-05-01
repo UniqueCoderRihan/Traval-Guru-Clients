@@ -2,7 +2,14 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import { Form, Link } from 'react-router-dom';
 import {FaFacebook, FaGoogle} from 'react-icons/fa'
+import { AuthContex } from '../../AuthProvider/AuthProviders';
 const Login = () => {
+    const {SignWithGoogle,Error,user} = useContext(AuthContex);
+
+    const handleGoogle=()=>{
+        SignWithGoogle()
+        console.log('clicked')
+    }
     return (
         <div>
             
@@ -29,7 +36,7 @@ const Login = () => {
                 <hr className='w-50' /> <p className='fw-4 px-3'>or</p> <hr className='w-50' />
                 </div>
                 <Button className='w-100 my-2 bg-white text-dark'> <FaFacebook></FaFacebook>  Continue With Facebook</Button>
-                <Button className='w-100 bg-white text-dark'> <FaGoogle></FaGoogle> Continue With Google</Button>
+                <Button onClick={handleGoogle} className='w-100 bg-white text-dark'> <FaGoogle></FaGoogle> Continue With Google</Button>
             </form>
             
         </div>

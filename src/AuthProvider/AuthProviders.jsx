@@ -1,6 +1,9 @@
-import React, { createContext, useState } from 'react';
+import React from 'react';
 import app from '../Firebase/firebase.config';
-import { GoogleAuthProvider,signInWithPopup } from "firebase/auth";
+import { useState } from 'react';
+import { createContext } from 'react';
+
+import {GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 
 export const AuthContex = createContext(null)
 const auth = getAuth(app)
@@ -15,6 +18,7 @@ const AuthProviders = ({children}) => {
         signInWithPopup(auth,googleProvider)
         .then(result=>{
             setUser(result.user)
+            console.log(result.user);
         })
         .catch(error=>{
             SetError(error.message)
