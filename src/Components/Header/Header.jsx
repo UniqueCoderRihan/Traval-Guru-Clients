@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { AuthContex } from '../../AuthProvider/AuthProviders';
 
 const Header = () => {
-  const {user} = useContext(AuthContex)
+  const {user,LogoutUser} = useContext(AuthContex)
   // console.log(user.displayName);
     return (
         <Navbar collapseOnSelect expand="lg" variant="dark">
@@ -21,7 +21,7 @@ const Header = () => {
             <Link to='/login' className='fs-4 text-decoration-none p-2'>Blog</Link>
             <Link to='/login' className='fs-4 text-decoration-none p-2'>Contact</Link>
             {user &&
-            <><Button className='btn-danger'>Logout</Button></>}
+            <><Button onClick={LogoutUser} className='btn-danger'>Logout</Button></>}
             {!user &&
             <> <Link to='/login'><Button className='btn-danger'>Login</Button></Link> </>}
 

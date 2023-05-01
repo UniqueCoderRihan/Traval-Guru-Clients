@@ -3,7 +3,7 @@ import app from '../Firebase/firebase.config';
 import { useState } from 'react';
 import { createContext } from 'react';
 
-import {FacebookAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import {FacebookAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 
 export const AuthContex = createContext(null)
 const auth = getAuth(app)
@@ -64,6 +64,12 @@ const AuthProviders = ({children}) => {
             console.log(SetError(error.message));
         })
     }
+    // logout 
+    const LogoutUser =()=>{
+        signOut(auth)
+        .then()
+        .catch(error=>SetError(error.message))
+    }
 
     useEffect(()=>{
         const unsubcrive = onAuthStateChanged(auth,loggedUser=>{
@@ -79,7 +85,8 @@ const AuthProviders = ({children}) => {
         SignWithGoogle,
         signInWithFacebook,
         NewUserEmailAndPassword,
-        SignInExitingUser
+        SignInExitingUser,
+        LogoutUser
     }
 
     return (
