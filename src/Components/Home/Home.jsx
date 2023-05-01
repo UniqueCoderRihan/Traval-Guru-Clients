@@ -1,23 +1,25 @@
 import React from 'react';
-import { Card, Col, Row } from 'react-bootstrap';
+import { useLoaderData } from 'react-router-dom';
+import City from '../Place/City';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 
 const Home = () => {
+const place = useLoaderData();
+  // console.log(place);
+
     return (
-        <Row xs={1} md={2} className="g-4">
-        <Col>
-          <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
-            <Card.Body>
-              <Card.Title>Card title</Card.Title>
-              <Card.Text>
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-    </Row>
+      <Swiper
+      spaceBetween={50}
+      slidesPerView={3}
+      onSlideChange={() => console.log('slide change')}
+      onSwiper={(swiper) => console.log(swiper)}
+    >
+     { place.map(city=> <SwiperSlide><City
+        key={city.id} 
+        city={city}></City></SwiperSlide> )}
+    </Swiper>
+
     );
 };
 

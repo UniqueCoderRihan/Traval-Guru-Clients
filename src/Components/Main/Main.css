@@ -1,5 +1,6 @@
-/* @import url('../../../public//images/icons/Rectangle\ 1.png'); */
+
 .mainBody{
     background: url('../../../public/images/icons/Rectangle\ 1.png');
-    
+    background-repeat: no-repeat;
+    min-height: 100vh;
 }

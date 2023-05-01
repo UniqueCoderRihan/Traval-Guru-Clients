@@ -17,7 +17,8 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Home></Home>
+        element: <Home></Home>,
+        loader: ()=> fetch('https://traval-guru-server.vercel.app/place')
       }  
     ]
   },
